@@ -10,7 +10,7 @@ image:
   name: quicktest-app
   # Initial tag - will be updated by pipeline with git SHA
   tag: "latest"
-  digest: "sha256:7be47695afb3267cbfd1e683cc59da5bdc9e9e939de6f43e7719cd868a67a677"
+  digest: "sha256:5a3b9235ead76fdfc15deb6e62008e76dcd978b66266574aaeb2944b3acd4586"
   # Digest - populated by pipeline for OpenShift cross-namespace pulls
   # When set, deployment uses image@digest format instead of image:tag
   # digest: "sha256:..."
