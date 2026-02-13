@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/name: {{ include "app.nameWithEnv" . }}
     app.kubernetes.io/instance: {{ include "app.nameWithEnv" . }}
     app.kubernetes.io/component: application
-    backstage.io/kubernetes-id: {{ include "app.nameWithEnv" . }}
+    backstage.io/kubernetes-id:  {{ .Values.app.name }}
 spec:
   to:
     kind: Service
