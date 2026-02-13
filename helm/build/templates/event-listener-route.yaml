@@ -8,8 +8,8 @@ metadata:
     app.kubernetes.io/managed-by: EventListener
     app.kubernetes.io/part-of: Triggers
     eventlistener: {{ .Values.app.name }}-el
-    app.kubernetes.io/name: {{ .Values.app.name }}
-    app.kubernetes.io/instance: {{ .Values.app.name }}
+    app.kubernetes.io/name: {{ include "app.nameWithEnv" . }}
+    app.kubernetes.io/instance: {{ include "app.nameWithEnv" . }}
     app.kubernetes.io/component: route
 spec:
   to:
