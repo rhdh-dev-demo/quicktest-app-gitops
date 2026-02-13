@@ -14,7 +14,6 @@ spec:
     matchLabels:
       app.kubernetes.io/name:  {{ include "app.nameWithEnv" . }}
       app.kubernetes.io/instance:  {{ include "app.nameWithEnv" . }}
-      backstage.io/kubernetes-id: {{ .Values.app.name }}
   template:
     metadata:
       labels:
