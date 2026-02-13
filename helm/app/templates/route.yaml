@@ -1,0 +1,28 @@
+{{- if .Values.route.enabled }}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name:  {{ include "app.nameWithEnv" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ include "app.nameWithEnv" . }}
+    app.kubernetes.io/instance: {{ include "app.nameWithEnv" . }}
+    app.kubernetes.io/component: application
+    backstage.io/kubernetes-id: {{ include "app.nameWithEnv" . }}
+spec:
+  to:
+    kind: Service
+    name: {{ include "app.nameWithEnv" . }}
+    weight: 100
+  port:
+    targetPort: http
+  {{- if .Values.route.tls.enabled }}
+  tls:
+    termination: {{ .Values.route.tls.termination }}
+    insecureEdgeTerminationPolicy: {{ .Values.route.tls.insecureEdgeTerminationPolicy }}
+  {{- end }}
+  {{- if .Values.route.host }}
+  host: {{ .Values.route.host }}
+  {{- end }}
+{{- end }}
+
