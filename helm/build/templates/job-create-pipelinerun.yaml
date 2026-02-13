@@ -29,13 +29,13 @@ spec:
             name: {{ .Values.app.name }}-pr
             namespace: {{ .Release.Namespace }}
             labels:
-              app.kubernetes.io/instance: {{ include "app.nameWithEnv" . }}
-              app.kubernetes.io/name: {{ include "app.nameWithEnv" . }}
+              app.kubernetes.io/instance:{{ .Values.app.name }}
+              app.kubernetes.io/name:{{ .Values.app.name }}
               operator.tekton.dev/operand-name: openshift-pipelines-addons
               pipeline.openshift.io/runtime: nodejs
               pipeline.openshift.io/runtime-version: 20-minimal-ubi8
               pipeline.openshift.io/type: kubernetes
-              tekton.dev/pipeline:  {{ include "app.nameWithEnv" . }}
+              tekton.dev/pipeline: {{ .Values.app.name }}
           spec:
             params:
               - name: IMAGE

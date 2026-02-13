@@ -23,9 +23,9 @@ spec:
         labels:
           backstage.io/kubernetes-id: {{ .Values.app.name }}
           tekton.dev/pipeline: {{ .Values.app.name }}-promote
-          app.kubernetes.io/part-of:  {{ include "app.nameWithEnv" . }}
-          app.kubernetes.io/name:  {{ include "app.nameWithEnv" . }}
-          app.kubernetes.io/instance:  {{ include "app.nameWithEnv" . }}
+          app.kubernetes.io/part-of: {{ .Values.app.name }}
+          app.kubernetes.io/name: {{ .Values.app.name }}
+          app.kubernetes.io/instance: {{ .Values.app.name }}
           app.kubernetes.io/component: pipelineRun
       spec:
         params:
