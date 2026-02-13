@@ -26,8 +26,8 @@ spec:
         namespace: {{ .Release.Namespace }}
         labels:
           backstage.io/kubernetes-id: {{ .Values.app.name }}
-          app.kubernetes.io/instance: {{ .Values.app.name }}
-          app.kubernetes.io/name: {{ .Values.app.name }}
+          app.kubernetes.io/instance:  {{ include "app.nameWithEnv" . }}
+          app.kubernetes.io/name:  {{ include "app.nameWithEnv" . }}
           tekton.dev/pipeline: {{ .Values.app.name }}-build
           pipeline.openshift.io/runtime: nodejs
         annotations:
